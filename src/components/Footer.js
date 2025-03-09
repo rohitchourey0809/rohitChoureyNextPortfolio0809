@@ -3,7 +3,7 @@
 export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white p-4 text-center">
-      <p>&copy; 2024 Rohit Choure | All rights reserved.</p>
+      <p>&copy; 2025 Rohit Chourey | All rights reserved.</p>
     </footer>
   );
 }

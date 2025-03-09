@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 export default function Profile() {
   return (
-    <section className="flex flex-col items-center justify-center h-screen bg-gray-900 text-white text-center px-6">
+    <section className="flex flex-col items-center justify-center bg-gray-900 text-white text-center px-6 py-16">
       {/* Animated Heading */}
       <motion.h1
         className="text-5xl font-bold"
@@ -11,7 +11,7 @@ export default function Profile() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        Hello, I&apos;m Rohit Choure
+        Hello, I&apos;m Rohit Chourey
       </motion.h1>
 
       {/* Subtitle */}
