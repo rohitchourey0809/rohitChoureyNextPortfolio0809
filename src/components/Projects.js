@@ -1,3 +1,4 @@
+"use client"
 import { projects } from "@/utils/data";
 
 export default function Projects() {
