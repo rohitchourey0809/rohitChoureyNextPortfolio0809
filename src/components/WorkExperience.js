@@ -31,7 +31,7 @@ const workExperienceData = [
 
 export default function WorkExperience() {
   return (
-    <section className="p-8 bg-gray-900 text-white">
+    <section id="work-experience" className="p-8 bg-gray-900 text-white">
       <motion.h2
         className="text-4xl font-bold text-center mb-8"
         initial={{ opacity: 0, y: -20 }}

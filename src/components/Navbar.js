@@ -1,33 +1,54 @@
 "use client";
-import Link from "next/link";
 import { useState } from "react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false); // Close menu on mobile after clicking a link
+    }
+  };
+
   return (
     <nav className="bg-gray-800 p-4 shadow-lg">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <h1 className="text-white text-2xl font-bold">Rohit Choure</h1>
+        {/* Mobile Menu Button */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-white"
+          className="md:hidden text-white text-2xl"
         >
           ☰
         </button>
+        {/* Navigation Links */}
         <div className={`md:flex ${isOpen ? "block" : "hidden"} space-x-6`}>
-          <Link href="/" className="text-white hover:text-blue-400">
+          <button
+            onClick={() => scrollToSection("home")}
+            className="text-white hover:text-blue-400"
+          >
             Home
-          </Link>
-          <Link href="/about" className="text-white hover:text-blue-400">
-            About
-          </Link>
-          <Link href="/projects" className="text-white hover:text-blue-400">
+          </button>
+          <button
+            onClick={() => scrollToSection("profile")}
+            className="text-white hover:text-blue-400"
+          >
+            Profile
+          </button>
+          <button
+            onClick={() => scrollToSection("projects")}
+            className="text-white hover:text-blue-400"
+          >
             Projects
-          </Link>
-          <Link href="/contact" className="text-white hover:text-blue-400">
+          </button>
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="text-white hover:text-blue-400"
+          >
             Contact
-          </Link>
+          </button>
         </div>
       </div>
     </nav>

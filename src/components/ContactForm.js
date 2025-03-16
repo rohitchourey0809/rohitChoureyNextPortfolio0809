@@ -1,50 +1,49 @@
 "use client";
-import { useState } from "react";
 
-export default function ContactForm() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Submitted:", form);
-  };
-
+export default function Contact() {
   return (
-    <form onSubmit={handleSubmit} className="bg-gray-800 p-6 rounded-lg">
-      <h2 className="text-3xl font-bold mb-4 text-white">Contact Me</h2>
-      <input
-        type="text"
-        name="name"
-        placeholder="Your Name"
-        className="w-full p-2 mb-4 rounded bg-gray-700 text-white"
-        onChange={handleChange}
-        required
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="Your Email"
-        className="w-full p-2 mb-4 rounded bg-gray-700 text-white"
-        onChange={handleChange}
-        required
-      />
-      <textarea
-        name="message"
-        placeholder="Your Message"
-        className="w-full p-2 mb-4 rounded bg-gray-700 text-white"
-        onChange={handleChange}
-        required
-      />
-      <button
-        type="submit"
-        className="bg-blue-600 px-4 py-2 rounded text-white hover:bg-blue-700"
+    <section
+      id="contact"
+      className="flex justify-center items-center py-12 bg-gray-900 text-white"
+    >
+      <form
+        action="https://formspree.io/f/myyobnrq"
+        method="POST"
+        className="bg-gray-800 p-5 rounded-lg shadow-lg w-full max-w-md"
       >
-        Send Message
-      </button>
-    </form>
+        <h2 className="text-xl font-semibold mb-3 text-center">Contact Me</h2>
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          required
+          className="w-full p-2 mb-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          required
+          className="w-full p-2 mb-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          required
+          rows="4"
+          className="w-full p-2 mb-2 rounded bg-gray-700 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        ></textarea>
+
+        <button
+          type="submit"
+          className="bg-blue-500 hover:bg-blue-600 w-full py-2 rounded text-white font-semibold transition-transform transform hover:scale-105"
+        >
+          Send Message 🚀
+        </button>
+      </form>
+    </section>
   );
 }
