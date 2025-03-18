@@ -4,8 +4,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ![Portfolio](https://github.com/user-attachments/assets/c8036194-7322-42d8-b18c-0683ad17cecd)
 
-https://github.com/user-attachments/assets/84494bb1-b519-4b8d-b1fd-681ca7f0d4a0
-
+https://github.com/user-attachments/assets/5fac7a8a-d07d-48ff-9b25-1711157e7b40
 
 ## Getting Started
 
