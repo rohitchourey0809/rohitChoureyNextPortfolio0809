@@ -31,7 +31,7 @@ const techIcons = {
 export default function Projects() {
   return (
     <section id="projects" className="p-8">
-      <h2 className="text-4xl font-bold text-center text-white">Projects</h2>
+      <h2 className="text-4xl font-bold text-center text-blue-400">Projects</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
         {projects.map((project, index) => (
           <div

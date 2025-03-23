@@ -47,7 +47,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="p-8 text-center bg-gray-900 text-white">
-      <h2 className="text-4xl font-bold mb-6">Skills</h2>
+      <h2 className="text-4xl font-bold text-blue-400 mb-6">Skills</h2>
 
       {/* Skills Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">

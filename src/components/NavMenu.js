@@ -1,45 +1,47 @@
 "use client";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import Link from "next/link";
 
 const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToSection = (id) => {
+  // Smooth scroll to section
+  const scrollToSection = useCallback((id) => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
       setIsOpen(false); // Close menu after clicking a link
     }
-  };
+  }, []);
+
+  // Navigation links
+  const navLinks = [
+    { id: "profile", label: "Profile" },
+    { id: "skills", label: "Skills" },
+    { id: "work-experience", label: "Work Experience" },
+    { id: "projects", label: "Projects" },
+  ];
 
   return (
-    <nav className="bg-gray-800 text-white p-4 shadow-md fixed top-0 w-full z-50 backdrop-blur-lg bg-opacity-90">
+    <nav className="bg-gray-800 text-white p-4 shadow-lg sticky top-0 z-10">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo & Name */}
+        {/* Logo and Name */}
         <div className="flex items-center space-x-3">
-          <Link href="/" className="flex items-center space-x-2 cursor-pointer">
+          <Link href="/" className="flex items-center space-x-2" aria-label="Home">
             <FaUserCircle className="text-3xl text-blue-400" />
-            <h1 className="text-xl font-semibold tracking-wide">
-              Rohit Chourey
-            </h1>
+            <h1 className="text-xl font-bold">Rohit Chourey</h1>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-6 text-lg font-medium">
-          {[
-            { id: "profile", label: "About Me" },
-            { id: "skills", label: "Skills" },
-            { id: "work-experience", label: "Experience" },
-            { id: "projects", label: "Projects" },
-            { id: "contact", label: "Contact" },
-          ].map(({ id, label }) => (
+        <ul className="hidden md:flex space-x-6">
+          {navLinks.map(({ id, label }) => (
             <li key={id}>
               <button
                 onClick={() => scrollToSection(id)}
-                className="hover:text-blue-400 transition duration-300"
+                className="hover:underline focus:underline transition duration-300"
+                aria-label={`Navigate to ${label}`}
               >
                 {label}
               </button>
@@ -49,8 +51,9 @@ const NavMenu = () => {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-2xl focus:outline-none"
+          className="md:hidden text-2xl"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
           ☰
         </button>
@@ -59,17 +62,12 @@ const NavMenu = () => {
       {/* Mobile Dropdown Menu */}
       {isOpen && (
         <ul className="md:hidden bg-gray-700 mt-2 p-4 rounded-lg space-y-4 text-center transition-all duration-300">
-          {[
-            { id: "profile", label: "About Me" },
-            { id: "skills", label: "Skills" },
-            { id: "work-experience", label: "Experience" },
-            { id: "projects", label: "Projects" },
-            { id: "contact", label: "Contact" },
-          ].map(({ id, label }) => (
+          {navLinks.map(({ id, label }) => (
             <li key={id}>
               <button
                 onClick={() => scrollToSection(id)}
-                className="block w-full py-2 hover:bg-gray-600 rounded-lg text-lg"
+                className="block w-full py-2 hover:bg-gray-600 focus:bg-gray-600 rounded-lg"
+                aria-label={`Navigate to ${label}`}
               >
                 {label}
               </button>
