@@ -28,7 +28,11 @@ const NavMenu = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo and Name */}
         <div className="flex items-center space-x-3">
-          <Link href="/" className="flex items-center space-x-2" aria-label="Home">
+          <Link
+            href="https://rohit-chourey-next-portfolio0809.vercel.app/"
+            className="flex items-center space-x-2"
+            aria-label="Home"
+          >
             <FaUserCircle className="text-3xl text-blue-400" />
             <h1 className="text-xl font-bold">Rohit Chourey</h1>
           </Link>
