@@ -1,5 +1,6 @@
 "use client";
 import { useState, useCallback } from "react";
+import { motion } from "framer-motion";
 import { FaUserCircle } from "react-icons/fa";
 import Link from "next/link";
 
@@ -24,7 +25,12 @@ const NavMenu = () => {
   ];
 
   return (
-    <nav className="bg-gray-800 text-white p-4 shadow-lg sticky top-0 z-10">
+    <motion.nav
+      className="bg-gray-800 text-white p-4 shadow-lg sticky top-0 z-10"
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+    >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo and Name */}
         <div className="flex items-center space-x-3">
@@ -65,7 +71,12 @@ const NavMenu = () => {
 
       {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <ul className="md:hidden bg-gray-700 mt-2 p-4 rounded-lg space-y-4 text-center transition-all duration-300">
+        <motion.ul
+          className="md:hidden bg-gray-700 mt-2 p-4 rounded-lg space-y-4 text-center"
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.25 }}
+        >
           {navLinks.map(({ id, label }) => (
             <li key={id}>
               <button
@@ -77,9 +88,9 @@ const NavMenu = () => {
               </button>
             </li>
           ))}
-        </ul>
+        </motion.ul>
       )}
-    </nav>
+    </motion.nav>
   );
 };
 

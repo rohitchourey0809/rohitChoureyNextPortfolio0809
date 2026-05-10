@@ -1,6 +1,7 @@
 "use client";
 import { projects } from "@/utils/data";
 import { FaCode, FaExternalLinkAlt } from "react-icons/fa";
+import { motion } from "framer-motion";
 import {
   SiReact,
   SiMongodb,
@@ -29,14 +30,38 @@ const techIcons = {
 };
 
 export default function Projects() {
+  const container = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 18, scale: 0.98 },
+    show: { opacity: 1, y: 0, scale: 1 },
+  };
+
   return (
     <section id="projects" className="p-8">
       <h2 className="text-4xl font-bold text-center text-blue-400">Projects</h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+      <motion.div
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.15 }}
+      >
         {projects.map((project, index) => (
-          <div
+          <motion.article
             key={index}
-            className="bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:-translate-y-2"
+            className="bg-gray-800 p-6 rounded-lg shadow-lg"
+            variants={item}
+            whileHover={{ scale: 1.03, y: -6 }}
+            transition={{ type: "spring", stiffness: 260 }}
+            role="article"
           >
             {/* Project Image */}
             <img
@@ -80,9 +105,9 @@ export default function Projects() {
                 <FaExternalLinkAlt className="mr-1" /> Live Preview
               </a>
             </div>
-          </div>
+          </motion.article>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

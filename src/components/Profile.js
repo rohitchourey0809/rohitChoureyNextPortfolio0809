@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import profileImage from "../utils/ResumeProfilePhotos.png";
 
@@ -22,15 +23,30 @@ export default function Profile() {
   };
 
   return (
-    <section
+    <motion.section
       id="profile"
       className="flex flex-col items-center justify-center bg-gray-900 text-white px-6 py-20 md:py-24 relative"
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
     >
       {/* Background Glow Effect */}
-      <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[400px] h-[400px] bg-blue-500 opacity-30 blur-3xl"></div>
+      <motion.div
+        className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[400px] h-[400px] bg-blue-500 opacity-30 blur-3xl"
+        aria-hidden
+        animate={{ scale: [0.98, 1.05, 0.98], opacity: [0.25, 0.35, 0.25] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       {/* Glassmorphic Card */}
-      <div className="relative bg-gray-800/40 backdrop-blur-lg p-8 rounded-2xl shadow-lg border border-gray-700 flex flex-col items-center">
+      <motion.div
+        className="relative bg-gray-800/40 backdrop-blur-lg p-8 rounded-2xl shadow-lg border border-gray-700 flex flex-col items-center"
+        initial={{ opacity: 0, scale: 0.98 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+      >
         {/* Profile Image */}
         <div className="relative w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden border-4 border-blue-400 shadow-md">
           <Image
@@ -50,12 +66,15 @@ export default function Profile() {
         {/* Buttons & Social Icons */}
         <div className="flex items-center gap-6 mt-5">
           {/* Resume Button */}
-          <button
+          <motion.button
             onClick={handleResumeClick}
-            className="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-md"
+            className="bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-lg text-lg font-semibold transition-all duration-300 shadow-md"
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             Resume 📄
-          </button>
+          </motion.button>
 
           {/* Social Links */}
           <div className="flex gap-4">
@@ -81,7 +100,7 @@ export default function Profile() {
             )}
           </div>
         </div>
-      </div>
-    </section>
+      </motion.div>
+    </motion.section>
   );
 }
