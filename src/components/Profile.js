@@ -7,7 +7,7 @@ import profileImage from "../utils/ResumeProfilePhotos.png";
 const home = {
   name: "Rohit Chourey",
   role: "Full Stack Developer",
-  resume: "https://drive.google.com/uc?id=1GBUXE__uh-8ca3UH-BJPZne1HlK0rRst",
+  resume: "https://drive.google.com/uc?id=1rQTVvJKRvHpbCehrBxjDa8CYHOQcpka1",
   social: {
     github: "https://github.com/rohitchourey0809",
     linkedin: "https://www.linkedin.com/in/rohitchourey0809/",
