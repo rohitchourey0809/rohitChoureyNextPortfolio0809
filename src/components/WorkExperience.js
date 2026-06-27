@@ -20,10 +20,12 @@ const workExperienceData = [
     duration: "July 2024 - May 2026",
     location: "Mumbai",
     responsibilities: [
-      "Led front-end development for booking and search flows, improving conversion rates.",
-      "Integrated third-party APIs for payments, inventory, and partner availability.",
-      "Built responsive, accessible UI components using Next.js and Tailwind CSS.",
-      "Implemented analytics and A/B testing hooks to measure feature impact.",
+      "Developed and maintained responsive web applications using React.js, JavaScript, HTML5, CSS3, and Bootstrap.",
+      "Built booking modules for airline, hotel, and cab services with real-time inventory, pricing, and availability updates.",
+      "Integrated RESTful APIs to display live booking data, search results, fare details, and reservation information.",
+      "Developed reusable React components and managed application state using Redux Toolkit for better scalability and maintainability.",
+      "Optimized application performance by implementing lazy loading, code splitting, memoization, and efficient API handling.",
+      "Collaborated with backend, QA, and product teams to deliver new features, resolve production issues, and enhance the user experience."
     ],
   },
   {
