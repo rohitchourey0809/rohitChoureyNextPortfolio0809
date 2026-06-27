@@ -5,7 +5,7 @@ const workExperienceData = [
    {
     company: "Aizen algo Pvt Ltd",
     duration: "June 2026 - Present",
-    location: "Mumbai",
+    location: "Hyderabad",
     responsibilities: [
         "Designed and optimized machine learning models for demand forecasting, improving prediction accuracy.",
         "Implemented scalable data pipelines and feature-engineering workflows using Node.js and Python.",
