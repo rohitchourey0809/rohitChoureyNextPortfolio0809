@@ -5,13 +5,14 @@ import Skills from "@/components/Skills";
 import Profile from "@/components/Profile";
 import Contact from "@/components/ContactForm";
 import GitHub from "@/components/Github";
+import About from "./about/page";
 
 export default function Home() {
   
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      {/* <NavMenu /> */}
       <Profile />
+      <About/>
       <Skills />
       <WorkExperience />
       <Projects />
