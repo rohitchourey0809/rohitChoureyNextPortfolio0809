@@ -8,7 +8,7 @@ import profileImage from "../utils/ResumeProfilePhotos.png";
 const home = {
   name: "Rohit Chourey",
   role: "Full Stack Developer",
-  resume: "https://drive.google.com/uc?id=1rQTVvJKRvHpbCehrBxjDa8CYHOQcpka1",
+  resume: "https://drive.google.com/drive/folders/1ZHSPndp_fxwurkL9sL87q8Qqop3lWUF6?usp=drive_link",
   social: {
     github: "https://github.com/rohitchourey0809",
     linkedin: "https://www.linkedin.com/in/rohitchourey0809/",
@@ -19,7 +19,7 @@ export default function Profile() {
   const { name, role, resume, social } = home;
 
   const handleResumeClick = () => {
-    window.open(resume, "_blank");
+    window.open(resume, "_blank", "noopener,noreferrer");
   };
 
   return (
