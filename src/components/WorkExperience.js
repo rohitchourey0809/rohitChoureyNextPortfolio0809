@@ -2,16 +2,18 @@
 import { motion } from "framer-motion";
 
 const workExperienceData = [
-   {
-    company: "Aizen algo Pvt Ltd",
-    duration: "June 2026 - Present",
+  {
+    company: "Aizen Algo Pvt. Ltd.",
+    duration: "June 2026 – Present",
     location: "Hyderabad",
     responsibilities: [
-        "Designed and optimized machine learning models for demand forecasting, improving prediction accuracy.",
-        "Implemented scalable data pipelines and feature-engineering workflows using Node.js and Python.",
-        "Developed core algorithmic services for personalization and recommendation systems.",
-        "Profiled and optimized critical algorithms, reducing latency and resource consumption.",
-    ],
+      "Developed responsive web applications using React.js, JavaScript, HTML, CSS, and Bootstrap.",
+      "Built and maintained RESTful APIs using ASP.NET Core and C#.",
+      "Integrated React frontend with .NET backend and optimized API performance.",
+      "Worked with SQL Server for database design, queries, and stored procedures.",
+      "Implemented JWT authentication and role-based authorization.",
+      "Collaborated with cross-functional teams using Git and Agile methodologies."
+    ]
   },
   {
     company: "Ziptrrip.com",
