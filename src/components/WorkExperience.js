@@ -2,15 +2,26 @@
 import { motion } from "framer-motion";
 
 const workExperienceData = [
-  {
-    company: "Ziptrrip.com",
-    duration: "July 2024 - Present",
+   {
+    company: "Aizen algo Pvt Ltd",
+    duration: "June 2026 - Present",
     location: "Mumbai",
     responsibilities: [
-      "Designed and implemented a multi-traveler selection UX, improving usability and booking efficiency.",
-      "Developed a Web Check-In Reminder System with automated messages, reducing missed check-ins.",
-      "Enhanced the Hotel Booking UX, increasing ease of use and conversion rates.",
-      "Built and maintained an Inventory Management Service, ensuring real-time availability and reducing booking errors.",
+        "Designed and optimized machine learning models for demand forecasting, improving prediction accuracy.",
+        "Implemented scalable data pipelines and feature-engineering workflows using Node.js and Python.",
+        "Developed core algorithmic services for personalization and recommendation systems.",
+        "Profiled and optimized critical algorithms, reducing latency and resource consumption.",
+    ],
+  },
+  {
+    company: "Ziptrrip.com",
+    duration: "July 2024 - May 2026",
+    location: "Mumbai",
+    responsibilities: [
+      "Led front-end development for booking and search flows, improving conversion rates.",
+      "Integrated third-party APIs for payments, inventory, and partner availability.",
+      "Built responsive, accessible UI components using Next.js and Tailwind CSS.",
+      "Implemented analytics and A/B testing hooks to measure feature impact.",
     ],
   },
   {
