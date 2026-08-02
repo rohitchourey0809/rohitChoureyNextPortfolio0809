@@ -122,7 +122,7 @@ Open **http://localhost:3000** in your browser.
 
 ## 🖼️ Demo
 
-https://github.com/user-attachments/assets/5fac7a8a-d07d-48ff-9b25-1711157e7b40
+https://github.com/user-attachments/assets/7727bdbc-adc5-4d93-8318-4e2840daa7a1
 
 ---
 
