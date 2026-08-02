@@ -1,97 +1,452 @@
 "use client";
+
 import { useState, useCallback } from "react";
-import { motion } from "framer-motion";
-import { FaUserCircle } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  FaBars,
+  FaTimes,
+  FaGithub,
+  FaDownload,
+  FaArrowRight,
+} from "react-icons/fa";
+
 import Link from "next/link";
 
 const NavMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Smooth scroll to section
   const scrollToSection = useCallback((id) => {
     const section = document.getElementById(id);
+
     if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-      setIsOpen(false); // Close menu after clicking a link
+      section.scrollIntoView({
+        behavior: "smooth",
+      });
+
+      setIsOpen(false);
     }
   }, []);
 
-  // Navigation links
+
   const navLinks = [
-    { id: "profile", label: "Profile" },
-    { id: "skills", label: "Skills" },
-    { id: "work-experience", label: "Work Experience" },
-    { id: "projects", label: "Projects" },
+    {
+      id: "profile",
+      label: "About",
+    },
+    {
+      id: "skills",
+      label: "Skills",
+    },
+    {
+      id: "work-experience",
+      label: "Experience",
+    },
+    {
+      id: "projects",
+      label: "Projects",
+    },
   ];
+
 
   return (
     <motion.nav
-      className="bg-gray-800 text-white p-4 shadow-lg sticky top-0 z-10"
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.45, ease: "easeOut" }}
+      initial={{
+        opacity: 0,
+        y: -30,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+      }}
+      transition={{
+        duration: 0.5,
+      }}
+
+      className="
+      fixed
+      top-0
+      left-0
+      right-0
+      z-50
+      backdrop-blur-xl
+      bg-black/40
+      border-b
+      border-white/10
+      "
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo and Name */}
-        <div className="flex items-center space-x-3">
-          <Link
-            href="https://rohit-chourey-next-portfolio0809.vercel.app/"
-            className="flex items-center space-x-2"
-            aria-label="Home"
+
+      <div
+        className="
+        max-w-7xl
+        mx-auto
+        px-6
+        py-4
+        flex
+        items-center
+        justify-between
+        "
+      >
+
+
+        {/* Logo */}
+        <Link
+          href="/"
+          className="
+          flex
+          items-center
+          gap-3
+          group
+          "
+        >
+
+          <div
+            className="
+            w-11
+            h-11
+            rounded-2xl
+            bg-gradient-to-br
+            from-cyan-400
+            via-blue-500
+            to-purple-600
+            flex
+            items-center
+            justify-center
+            text-black
+            font-black
+            text-lg
+            shadow-lg
+            group-hover:scale-110
+            transition
+            "
           >
-            <FaUserCircle className="text-3xl text-blue-400" />
-            <h1 className="text-xl font-bold">Rohit Chourey</h1>
-          </Link>
+            RC
+          </div>
+
+
+          <div>
+            <h1
+              className="
+              text-white
+              font-bold
+              text-lg
+              "
+            >
+              Rohit Chourey
+            </h1>
+
+            <p
+              className="
+              text-xs
+              text-gray-400
+              "
+            >
+              Full Stack Developer
+            </p>
+          </div>
+
+        </Link>
+
+
+
+        {/* Desktop Menu */}
+        <div
+          className="
+          hidden
+          md:flex
+          items-center
+          gap-8
+          "
+        >
+
+          <ul
+            className="
+            flex
+            gap-7
+            "
+          >
+            {navLinks.map((item) => (
+
+              <li key={item.id}>
+
+                <button
+                  onClick={() =>
+                    scrollToSection(item.id)
+                  }
+
+                  className="
+                  relative
+                  text-gray-300
+                  hover:text-white
+                  transition
+                  group
+                  "
+                >
+
+                  {item.label}
+
+
+                  <span
+                    className="
+                    absolute
+                    left-0
+                    -bottom-2
+                    w-0
+                    h-[2px]
+                    bg-gradient-to-r
+                    from-cyan-400
+                    to-blue-500
+                    group-hover:w-full
+                    transition-all
+                    duration-300
+                    "
+                  />
+
+                </button>
+
+              </li>
+
+            ))}
+          </ul>
+
+
+
+          {/* Resume */}
+          <a
+            href="https://drive.google.com/drive/folders/1ZHSPndp_fxwurkL9sL87q8Qqop3lWUF6?usp=drive_link"
+            target="_blank"
+
+            className="
+            flex
+            items-center
+            gap-2
+            px-4
+            py-2
+            rounded-xl
+            border
+            border-white/20
+            text-gray-200
+            hover:bg-white
+            hover:text-black
+            transition
+            "
+          >
+
+            <FaDownload />
+
+            Resume
+
+          </a>
+
+
+
+          {/* Hire Button */}
+          <button
+
+            onClick={() =>
+              scrollToSection("contact")
+            }
+
+            className="
+            flex
+            items-center
+            gap-2
+            px-5
+            py-2.5
+            rounded-xl
+            bg-gradient-to-r
+            from-cyan-400
+            to-blue-500
+            text-black
+            font-semibold
+            hover:scale-105
+            transition
+            "
+          >
+
+            Hire Me
+
+            <FaArrowRight />
+
+          </button>
+
+
         </div>
 
-        {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-6">
-          {navLinks.map(({ id, label }) => (
-            <li key={id}>
-              <button
-                onClick={() => scrollToSection(id)}
-                className="hover:underline focus:underline transition duration-300"
-                aria-label={`Navigate to ${label}`}
-              >
-                {label}
-              </button>
-            </li>
-          ))}
-        </ul>
 
-        {/* Mobile Menu Button */}
+
+        {/* Mobile Button */}
         <button
-          className="md:hidden text-2xl"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
+
+          onClick={() =>
+            setIsOpen(!isOpen)
+          }
+
+          className="
+          md:hidden
+          text-white
+          text-2xl
+          "
+
         >
-          ☰
+
+          {isOpen ? (
+            <FaTimes />
+          ) : (
+            <FaBars />
+          )}
+
         </button>
+
+
       </div>
 
-      {/* Mobile Dropdown Menu */}
+
+
+      {/* Mobile Menu */}
+
+      <AnimatePresence>
+
       {isOpen && (
-        <motion.ul
-          className="md:hidden bg-gray-700 mt-2 p-4 rounded-lg space-y-4 text-center"
-          initial={{ opacity: 0, y: -8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.25 }}
+
+        <motion.div
+
+          initial={{
+            opacity:0,
+            x:100,
+          }}
+
+          animate={{
+            opacity:1,
+            x:0,
+          }}
+
+          exit={{
+            opacity:0,
+            x:100,
+          }}
+
+          className="
+          md:hidden
+          absolute
+          right-0
+          top-full
+          w-72
+          min-h-screen
+          bg-black/90
+          backdrop-blur-xl
+          border-l
+          border-white/10
+          p-6
+          "
+
         >
-          {navLinks.map(({ id, label }) => (
-            <li key={id}>
+
+          <ul
+            className="
+            flex
+            flex-col
+            gap-6
+            "
+          >
+
+          {navLinks.map((item)=>(
+
+            <li key={item.id}>
+
               <button
-                onClick={() => scrollToSection(id)}
-                className="block w-full py-2 hover:bg-gray-600 focus:bg-gray-600 rounded-lg"
-                aria-label={`Navigate to ${label}`}
+
+                onClick={() =>
+                  scrollToSection(item.id)
+                }
+
+                className="
+                text-gray-300
+                text-lg
+                hover:text-cyan-400
+                transition
+                "
+
               >
-                {label}
+
+                {item.label}
+
               </button>
+
             </li>
+
           ))}
-        </motion.ul>
+
+          </ul>
+
+
+
+          <div
+            className="
+            mt-10
+            flex
+            flex-col
+            gap-4
+            "
+          >
+
+          <a
+            href="/resume.pdf"
+            className="
+            flex
+            justify-center
+            items-center
+            gap-2
+            py-3
+            rounded-xl
+            border
+            border-white/20
+            text-white
+            "
+          >
+
+            <FaDownload />
+
+            Resume
+
+          </a>
+
+
+
+          <button
+
+            onClick={() =>
+              scrollToSection("contact")
+            }
+
+            className="
+            py-3
+            rounded-xl
+            bg-gradient-to-r
+            from-cyan-400
+            to-blue-500
+            text-black
+            font-bold
+            "
+          >
+
+            Hire Me
+
+          </button>
+
+
+          </div>
+
+
+        </motion.div>
+
       )}
+
+      </AnimatePresence>
+
+
     </motion.nav>
   );
 };
+
 
 export default NavMenu;
