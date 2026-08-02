@@ -12,7 +12,15 @@ A modern, responsive, and interactive **Full Stack Developer Portfolio** built w
 
 ## 📸 Preview
 
-![Portfolio Preview](https://github.com/user-attachments/assets/c8036194-7322-42d8-b18c-0683ad17cecd)
+![Portfolio Preview](https://github.com/user-attachments/assets/7727bdbc-adc5-4d93-8318-4e2840daa7a1)
+
+
+
+
+
+
+
+
 
 ---
 
